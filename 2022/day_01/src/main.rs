@@ -18,6 +18,8 @@ fn part2() {
         r += d.pop().unwrap();
     }
     println!("{r}");
+
+    println!("{}", data().into_iter().take(3).sum::<u32>());
 }
 
 fn main() {
