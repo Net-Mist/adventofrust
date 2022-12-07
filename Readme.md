@@ -11,8 +11,11 @@ day 05: nom, atoi (for &[u8] to usize parsing)
 2022
 day 01: iterators and BinaryHeap
 day 02: int enum, pattern matching
-day 03: HashSet
+day 03: HashSet, chunks
 day 04: nom, atoi
+day 05: nom, VecDeque
+day 06: HashSet, windows
+day 07: nom, tree struct
 
 see
 https://github.com/Net-Mist/advent_of_code2021
