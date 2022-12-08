@@ -51,15 +51,6 @@ fn part1() {
     );
 }
 
-fn s(v: u32, h: u32, stop: &mut bool) -> bool {
-    if *stop {
-        return false;
-    }
-    if v >= h {
-        *stop = true;
-    }
-    true
-}
 
 fn part2() {
     let d = data();
@@ -69,40 +60,35 @@ fn part2() {
     for i in 0..size {
         for j in 0..size {
             let h = d[i][j];
-            let mut dist = 1;
-            let mut stop = false;
-            dist *= d
-                .iter()
-                .skip(i + 1)
-                .take_while(|v| s(v[j], h, &mut stop))
-                .count();
 
-            let mut stop = false;
-            dist *= d
-                .iter()
-                .take(i)
-                .rev()
-                .take_while(|v| s(v[j], h, &mut stop))
-                .count();
+            let (mut up, mut down, mut l, mut r) = (0,0,0,0);
 
-            let mut stop = false;
-            dist *= d[i]
-                .iter()
-                .skip(j + 1)
-                .take_while(|v| s(**v, h, &mut stop))
-                .count();
-
-            let mut stop = false;
-            dist *= d[i]
-                .iter()
-                .take(j)
-                .rev()
-                .take_while(|v| s(**v, h, &mut stop))
-                .count();
-
-            if dist > max_d {
-                max_d = dist;
+            for x in (0..j).rev() {
+                l += 1;
+                if h <= d[i][x] {
+                    break;
+                }
             }
+            for x in j+1..size {
+                r += 1;
+                if h <= d[i][x] {
+                    break;
+                }
+            }
+            for y in (0..i).rev() {
+                up += 1;
+                if h <= d[y][j] {
+                    break;
+                }
+            }
+            for y in i+1..size {
+                down += 1;
+                if h <= d[y][j] {
+                    break;
+                }
+            }
+
+            max_d = max_d.max(up*down*l*r);
         }
     }
     println!("{}", max_d);
