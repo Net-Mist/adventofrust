@@ -2,7 +2,7 @@ use std::cmp::Reverse;
 use std::collections::BinaryHeap;
 use std::collections::HashMap;
 
-use petgraph::graph::{NodeIndex, UnGraph};
+use petgraph::graph::{NodeIndex, DiGraph};
 use petgraph::algo::{dijkstra, min_spanning_tree};
 use petgraph::data::FromElements;
 use petgraph::dot::{Dot, Config};
@@ -114,14 +114,16 @@ fn part12() {
     explore(cost, to_process, &map, &connections, &e);
 }
 
-fn part1_petgraph() {
-    let (connections, s, s_part2, e, map) = data();
+// fn part1_petgraph() {
+//     let (connections, s, s_part2, e, map) = data();
 
+//     let g = DiGraph::<(usize, usize), ()>::from_edges(connections);
 
+//     // Into<NodeIndex<Ix> for (usize, usize)
 
-}
+// }
 
 fn main() {
-    // part12();
-    part1_petgraph();
+    part12();
+    // part1_petgraph();
 }
