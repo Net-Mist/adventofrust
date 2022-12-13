@@ -16,6 +16,12 @@ day 04: nom, atoi
 day 05: nom, VecDeque
 day 06: HashSet, windows
 day 07: nom, tree struct
+day 08: vec of vec
+day 09: HashSet, Hash
+day 10: nom
+day 11: nom, complex, OOP
+day 12: BinaryHeap, Reverse, try to use petgraph but doesn't work
+day 13: serde, matching and destructuring
 
 see
 https://github.com/Net-Mist/advent_of_code2021
