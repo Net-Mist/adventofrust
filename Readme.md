@@ -20,8 +20,9 @@ day 08: vec of vec
 day 09: HashSet, Hash
 day 10: nom
 day 11: nom, complex, OOP
-day 12: BinaryHeap, Reverse, try to use petgraph but doesn't work
+day 12: BinaryHeap, Reverse, petgraph, pathfinding
 day 13: serde, matching and destructuring
+day 15: regex
 
 see
 https://github.com/Net-Mist/advent_of_code2021
