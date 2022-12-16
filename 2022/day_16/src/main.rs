@@ -66,8 +66,8 @@ fn move_to(valve: &str, pos: &str, d: &HashMap<&'static str, (u32, Vec<&'static 
         &valve,
         |valve| {
             let a = d.get(valve);
-            let b = a.unwrap().1.clone();
-            b
+            
+            a.unwrap().1.clone()
         },
         |p| *p == pos,
     )
@@ -106,15 +106,15 @@ fn part1() {
             }
 
             let mut opened_valves = cur_status.opened_valves.clone();
-            opened_valves.insert(&v);
-            let mut flow =
+            opened_valves.insert(v);
+            let flow =
                 cur_status.flow + (MAX_TIME - (cur_status.time + t)) * valves.get(&v).unwrap().0;
             max_flow = max_flow.max(flow);
             status.push(Status {
                 time: cur_status.time + t,
-                flow: flow,
+                flow,
                 position: v,
-                opened_valves: opened_valves,
+                opened_valves,
             })
         }
     }
@@ -156,17 +156,17 @@ fn part2() {
             }
 
             let mut opened_valves = cur_status.opened_valves.clone();
-            opened_valves.insert(&v);
+            opened_valves.insert(v);
             let flow =
                 cur_status.flow + (MAX_TIME2 - (cur_status.time + t)) * valves.get(&v).unwrap().0;
             max_flow = max_flow.max(flow);
             let s = Status2 {
                 time: cur_status.time + t,
                 time2: cur_status.time2,
-                flow: flow,
+                flow,
                 position: v,
                 position2: cur_status.position2,
-                opened_valves: opened_valves,
+                opened_valves,
             };
 
             for (&v2, &i2) in interesting_valves.iter() {
@@ -188,7 +188,7 @@ fn part2() {
 
                 if cur_status.time2 + t < MAX_TIME2 {
                     let mut opened_valves = s.opened_valves.clone();
-                    opened_valves.insert(&v);
+                    opened_valves.insert(v);
                     let flow = s.flow + (MAX_TIME2 - (s.time2 + t)) * valves.get(&v).unwrap().0;
                     max_flow = max_flow.max(flow);
                     status.push(Status2 {
@@ -197,7 +197,7 @@ fn part2() {
                         flow,
                         position: s.position,
                         position2: v,
-                        opened_valves: opened_valves,
+                        opened_valves,
                     })
                 }
             }
