@@ -1,6 +1,5 @@
 use std::collections::HashMap;
 use std::collections::VecDeque;
-use bitmaps;
 
 const N_ROCKS1: u128 = 2022;
 const N_ROCKS2: u128 = 1000000000000;
@@ -200,6 +199,5 @@ fn part2(n_rocks: u128) {
 
 fn main() {
     part2(N_ROCKS1);
-    // part2(N_ROCKS2);
+    part2(N_ROCKS2);
 }
-// 1591860465111
