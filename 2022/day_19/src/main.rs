@@ -52,7 +52,8 @@ fn part(part2: bool) {
     for blueprint in d.into_iter() {
         let id = blueprint.0;
         let s = State {
-            ore_robot: 1, ..Default::default()
+            ore_robot: 1,
+            ..Default::default()
         };
         let mut to_explore = BinaryHeap::new();
         to_explore.push(s);
@@ -66,7 +67,7 @@ fn part(part2: bool) {
             while !to_explore.is_empty() {
                 let s = to_explore.pop().unwrap();
 
-                // generate ressources
+                // generate resources
                 let mut new_s = s;
                 new_s.ore += s.ore_robot;
                 new_s.clay += s.clay_robot;
