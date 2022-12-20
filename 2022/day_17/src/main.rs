@@ -194,10 +194,10 @@ fn part2(n_rocks: u128) {
             break;
         }
     }
-    println!("final h: {:?}", real_max_y);
+    println!("final h: {:?}", real_max_y-1);
 }
 
 fn main() {
-    part2(N_ROCKS1);
+    part1();
     part2(N_ROCKS2);
 }

@@ -23,6 +23,9 @@ advent of code done in rust
 * day 12: BinaryHeap, Reverse, petgraph, pathfinding
 * day 13: serde, matching and destructuring
 * day 15: regex
+* day 16: &'static str. A lot. And graph
+* day 19: tree exploration, with pruning using BinaryHeap
+
 
 see
 * https://github.com/Net-Mist/advent_of_code2021
