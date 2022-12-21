@@ -25,7 +25,7 @@ advent of code done in rust
 * day 15: regex
 * day 16: &'static str. A lot. And graph
 * day 19: tree exploration, with pruning using BinaryHeap
-
+* day 21: tree structure on dict
 
 see
 * https://github.com/Net-Mist/advent_of_code2021

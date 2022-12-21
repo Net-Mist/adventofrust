@@ -1,15 +1,15 @@
 #![feature(test)]
 
-use nom::branch::alt;
-use nom::bytes::complete::take;
-use nom::bytes::complete::take_until1;
-use nom::combinator::map;
-
-use nom::number::complete::float;
-
-use nom::{bytes::complete::tag, sequence::tuple, IResult};
 use std::collections::HashMap;
 
+use nom::{
+    branch::alt,
+    bytes::complete::{tag, take, take_until1},
+    combinator::map,
+    number::complete::float,
+    sequence::tuple,
+    IResult,
+};
 
 #[derive(Debug, Clone, Copy)]
 struct Op {
@@ -118,23 +118,22 @@ fn part2() {
     let mut monkeys = data();
 
     // correct mistakes
-    let (&root_left, &root_right) =
+    let (root_left, root_right) =
         if let Node::Op(Op { op: _, node_i_l: root_left, node_i_r: root_right }) = monkeys.get(&"root").unwrap() {
-            (root_left, root_right)
+            (*root_left, *root_right)
         } else {
             panic!()
         };
+
     monkeys.insert("root", Node::Op(Op { op: "=", node_i_l: root_left, node_i_r: root_right }));
     monkeys.insert("humn", Node::Unknown);
 
     if let Ok(v) = compute_value(monkeys.get(root_left).unwrap(), &monkeys) {
-        if let Node::Op(op) = monkeys.get(root_right).unwrap() {
-            println!("{}", propagate_value(op, &monkeys, v));
-        }
+        let Node::Op(op) = monkeys.get(root_right).unwrap() else {panic!()};
+        println!("{}", propagate_value(op, &monkeys, v));
     } else if let Ok(v) = compute_value(monkeys.get(root_right).unwrap(), &monkeys) {
-        if let Node::Op(op) = monkeys.get(root_left).unwrap() {
-            println!("{}", propagate_value(op, &monkeys, v));
-        }
+        let Node::Op(op) = monkeys.get(root_left).unwrap() else {panic!()};
+        println!("{}", propagate_value(op, &monkeys, v));
     }
 }
 
@@ -260,8 +259,9 @@ fn part2_1() {
 mod tests {
     extern crate test;
 
-    use super::*;
     use test::Bencher;
+
+    use super::*;
 
     #[bench]
     fn bench_part1_1(b: &mut Bencher) {
