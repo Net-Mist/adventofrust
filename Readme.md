@@ -29,6 +29,6 @@ advent of code done in rust
 
 ## Other repo
 * See my solution of last year, in python: https://github.com/Net-Mist/advent_of_code2021
-* The solution of someone that knows well Rust: [last year](https://github.com/timvisee/advent-of-code-2021) [this year](https://github.com/timvisee/advent-of-code-2022)
+* The solution of someone that knows well Rust: [last year](https://github.com/timvisee/advent-of-code-2021), [this year](https://github.com/timvisee/advent-of-code-2022)
 
 
