@@ -1,6 +1,8 @@
 # AdventOfRust
 
-advent of code done in rust
+Advent of code done in Rust.
+
+Please note that I am in the process of learning Rust. If you want to see code written by mature Rust dev, well, you will not find it here!
 
 ## 2021
 * day 01: iterators
